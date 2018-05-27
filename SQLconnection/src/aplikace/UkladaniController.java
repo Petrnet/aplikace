@@ -71,6 +71,8 @@ public void ukladani(ActionEvent event) {
 	}
 }
 	 public void ukazani(ActionEvent event) {
+		 
+		 vypis.getItems().clear();
 		 PreparedStatement preparedStatement=null;
 		 ResultSet rs=null;
 		 connection = sqliteConnection.dbConnector();
