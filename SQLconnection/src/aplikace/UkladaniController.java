@@ -43,6 +43,8 @@ public class UkladaniController implements Initializable{
 @FXML private TableColumn<?, ?> Username2;
 @FXML private TableColumn<?, ?> password2;
 Connection connection;
+PreparedStatement preparedStatement=null;
+ResultSet rs=null;
 
 
 public void ukladani(ActionEvent event) {
@@ -73,8 +75,6 @@ public void ukladani(ActionEvent event) {
 	 public void ukazani(ActionEvent event) {
 		 
 		 vypis.getItems().clear();
-		 PreparedStatement preparedStatement=null;
-		 ResultSet rs=null;
 		 connection = sqliteConnection.dbConnector();
 		if (connection==null)System.exit(1);
 		
@@ -113,8 +113,28 @@ public void ukladani(ActionEvent event) {
 			
 	 }  
 	 }	 
-
-
+	 
+	 public void editace(ActionEvent event) {
+	 connection = sqliteConnection.dbConnector();
+		if (connection==null)System.exit(1);
+	
+	 try {
+		String query="Update Employees set EID='"+EID.getText()+"' ,Username=' "+Username.getText()+"' ,password='"+password.getText()+"' ,name=' "+name.getText()+"' ,Surname='"+Surname.getText()+"' where EID='"+EID.getText()+"' "; 
+				PreparedStatement pst=connection.prepareStatement(query);
+				
+				
+				pst.execute();
+				
+				JOptionPane.showMessageDialog(null, "Data Updated");
+				pst.close();
+				
+				
+	} catch (SQLException e) {
+		
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 @Override
 public void initialize(URL location, ResourceBundle resources) {
 	
