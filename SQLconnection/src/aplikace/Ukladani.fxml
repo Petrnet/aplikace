@@ -25,5 +25,6 @@
         </columns>
       </TableView>
       <Button layoutX="81.0" layoutY="258.0" mnemonicParsing="false" onAction="#editace" text="Editovat" />
+      <Button layoutX="158.0" layoutY="258.0" mnemonicParsing="false" onAction="#smazat" text="Smazat" />
    </children>
 </AnchorPane>

@@ -135,6 +135,30 @@ public void ukladani(ActionEvent event) {
 		e.printStackTrace();
 	}
 }
+	 
+	 public void smazat(ActionEvent event) {
+	 connection = sqliteConnection.dbConnector();
+		if (connection==null)System.exit(1);
+	
+	 try {
+		String query="delete from Employees where EID='"+EID.getText()+"' ";
+				PreparedStatement pst=connection.prepareStatement(query);
+				
+				
+				pst.execute();
+				
+				JOptionPane.showMessageDialog(null, "Data Deleted");
+				pst.close();
+				
+				
+	} catch (SQLException e) {
+		
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}	 
+	 
+	 
 @Override
 public void initialize(URL location, ResourceBundle resources) {
 	
