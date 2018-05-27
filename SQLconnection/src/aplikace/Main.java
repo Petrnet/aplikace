@@ -20,9 +20,9 @@ public class Main extends Application{
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(getClass()
 		          .getResource
-		          ("Login.fxml"));
+		          ("Ukladani.fxml"));
 		Parent root = loader.load();
-		LoginController controller = loader.getController();
+		UkladaniController controller = loader.getController();
 		
         primaryStage.setTitle("Rezervace");
         primaryStage.setScene(new Scene(root));
